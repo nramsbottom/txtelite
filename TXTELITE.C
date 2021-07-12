@@ -33,12 +33,7 @@ of Elite with no combat or missions.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
-
-#include <conio.h>
-#include <graph.h>
 #include <math.h>
-#include <malloc.h>
 
 #define true (-1)
 #define false (0)
@@ -51,8 +46,6 @@ typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef signed short int16;
 typedef signed long int32;
-
-typedef uint16 uint;
 
 typedef int planetnum;
 
@@ -787,7 +780,22 @@ boolean dohelp(char *s)
    printf("\n\nAbbreviations allowed eg. b fo 5 = Buy Food 5, m= Mkt");
 return true;
 }
-			 
+
+char *readline(char *buf, size_t max) {
+  fgets(buf, max, stdin); /* gets is deprecated and upsets the compiler */
+  /* fgets returns newlines when reading from terminal */
+  for (int n=0;n<max;n++) {
+    char *c = buf + n;
+    if (*c == '\0')
+      break;
+    else if (*c == '\r' || *c == '\n') {
+      *c = '\0';
+    break;
+    }
+  }
+  return buf;
+}
+
 /**+main **/
 int main()
 {	 uint i;
@@ -816,7 +824,7 @@ int main()
 
    for(;;)
    { printf("\n\nCash :%.1f>",((float)cash)/10);
-     gets(getcommand);
+     readline(getcommand, maxlen);
      parser(getcommand);
    }
    
