@@ -119,7 +119,7 @@ markettype localmarket;
 uint     holdspace;
 
 int fuelcost =2; /* 0.2 CR/Light year */
-int maxfuel =70; /* 7.0 LY tank */
+const uint maxfuel =70; /* 7.0 LY tank */
 
 const uint16 base0=0x5A4A;
 const uint16 base1=0x0248;
