@@ -783,7 +783,7 @@ return true;
 char *readline(char *buf, size_t max) {
   fgets(buf, max, stdin); /* gets is deprecated and upsets the compiler */
   /* fgets returns newlines when reading from terminal */
-  for (int n=0;n<max;n++) {
+  for (size_t n=0;n<max;n++) {
     char *c = buf + n;
     if (*c == '\0')
       break;
