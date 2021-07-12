@@ -35,6 +35,8 @@ of Elite with no combat or missions.
 #include <string.h>
 #include <math.h>
 
+#define IsNotUsed __attribute__((unused)) /* gcc specific */
+
 #define true (-1)
 #define false (0)
 #define tonnes (0)
@@ -585,16 +587,14 @@ void prisys(plansys plsy,boolean compressed)
 
 /**-Various command functions **/
 
-boolean dotweakrand(char * s)
-{	 (void *)&s;
-   nativerand ^=1;
+boolean dotweakrand(IsNotUsed char * s)
+{  nativerand ^=1;
    return true;
 }
 
-boolean dolocal(char *s)
+boolean dolocal(IsNotUsed char *s)
 {	 planetnum syscount;
    uint d;
-   atoi(s);
    printf("Galaxy number %i",galaxynum);
    for(syscount=0;syscount<galsize;++syscount)
    { 	d=distance(galaxy[syscount],galaxy[currentplanet]);
@@ -732,9 +732,8 @@ boolean docash(char *s) /* Cheat alter cash by S */
   return false;
 }
 
-boolean domkt(char *s) /* Show stock market */
-{ atoi(s);
-  displaymarket(localmarket);
+boolean domkt(IsNotUsed char *s) /* Show stock market */
+{ displaymarket(localmarket);
   printf("\nFuel :%.1f",(float)fuel/10);
   printf("      Holdspace :%it",holdspace);
   return true;
