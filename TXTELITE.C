@@ -46,7 +46,7 @@ typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef signed short int16;
 typedef signed long int32;
-
+typedef unsigned int uint;
 typedef int planetnum;
 
 
@@ -804,7 +804,7 @@ int main()
    printf("\nWelcome to Text Elite 1.5.\n");
 
    for(i=0;i<=lasttrade;i++) strcpy(tradnames[i],commodities[i].name);
-
+   printf("%d\n", i);
    mysrand(12345);/* Ensure repeatability */
 
    galaxynum=1;	buildgalaxy(galaxynum);
