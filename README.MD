@@ -4,5 +4,4 @@ is not significantly different from the original.
 
 There is a branch named `pedantic` that compiles with `Wall -Wextra -pedantic -Werror` for GCC.
 
-There is a branch named `msvc` that builds for Visual Studio 2019.
 
